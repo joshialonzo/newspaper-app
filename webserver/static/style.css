@@ -1,27 +1,24 @@
 body{
-	background: #2F4F4F;
+	background: #780000;
 	font-size: 62.5%;
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
-/* Global Styles*/
-h1{
+/* Global styles */
 
-}
+h1 {}
 
-h2{
-}
+h2 {}
 
-h5{
+h5 {
 	font-size: 1rem;
 	margin-bottom: 0;
-
 }
 
-p{
+p {
 	font-size: 1rem;
 }
 
-button{
+button {
 	font-size: 1rem;
 	color: white;
 	padding: 0.4rem 1.4rem;
@@ -29,20 +26,20 @@ button{
 	background: #7A9D96;
 	 border-radius: 4px;
 	cursor: pointer;
-
 }
 
-img{
+img {
 	object-fit: cover;
 }
 
-/* Nav bar */
-.main-head{
+/* Navbar */
+
+.main-head {
 	background: white;
 	color: black;
 }
 
-nav.main{
+nav.main {
 	min-height: 7vh;
 	display: flex;
 	width: 65%;
@@ -51,7 +48,7 @@ nav.main{
 	padding: 0.5rem;
 }
 
-nav.main ul{
+nav.main ul {
 	display: flex;
 	flex: 1 1 40rem;
 	justify-content: space-around;
@@ -59,20 +56,20 @@ nav.main ul{
 	list-style: none;
 }
 
-#logo{
+#logo {
 	flex: 2 1 40rem;
 }
 
-/* -----*/
+/* ----- */
 
-a{
+a {
 	font-size: .93rem;
 	text-decoration: none;
 	color: black;
 }
 
 
-.main{
+.main {
 	background: white;
 	width: 60%;
 	margin: 5% auto;
@@ -80,63 +77,63 @@ a{
 	padding-bottom: 20px;
 }
 
-/* NAVIGATION BAR */
-.second-nav{
+/* Navigation bar */
+.second-nav {
 	display: flex;
 	padding: 15px 30px;
 }
 
-.second-nav .feed{
+.second-nav .feed {
 	flex: 1 1 30px;
 }
 
-.second-nav .feed:hover{
-	flex: 1 1 30px;
-	color: grey;
-}
-
-.second-nav .profile{
-	flex: 1 1 30px;
-}
-
-.second-nav .profile:hover{
+.second-nav .feed:hover {
 	flex: 1 1 30px;
 	color: grey;
 }
 
-.second-nav .new{
+.second-nav .profile {
+	flex: 1 1 30px;
+}
+
+.second-nav .profile:hover {
+	flex: 1 1 30px;
+	color: grey;
+}
+
+.second-nav .new {
 	flex: 6 1 5rem;
 	text-align: right;
 	text-transform: uppercase;
   	color: #7A9D96;
 }
 
-.second-nav .new:hover{
+.second-nav .new:hover {
 	color: grey;
 }
 
 /* Article */
 
-article{
+article {
 	width: 93%;
 	margin: auto;
 	padding: 40px 0;
 	border-bottom: 2px solid #ECEEEF;
 }
 
-.username{
+.username {
 	margin-bottom: .2rem;
 }
 
-.username a{
+.username a {
 	font-size: 1.1rem;
 }
 
-.container-article{
+.container-article {
   display: flex;
 }
 
-.container-article img{
+.container-article img {
   height: 68px;
   width: 68px;
   margin-right: 10px;
@@ -152,31 +149,33 @@ time {
   opacity: .7;
 }
 
-.post{
+.post {
 	font-size: .94rem;
 }
 
-/* PROFILE */
-.profile{
+/* Profile */
+
+.profile {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 }
 
-.profile img{
+.profile img {
   height: 100px;
   width: 100px;
   margin-right: 10px;
   border-radius: 50%;
   margin: 20px;
 }
-.profile h2{
+.profile h2 {
 	margin-top: -10px;
 	font-size: 1.3rem;
 }
 
 /* Followers / Following / Post */
-.follow{
+
+.follow {
 	display: flex;
 	width: 95%;
 	justify-content: space-around;
@@ -186,13 +185,14 @@ time {
 	padding-bottom: 20px;
 }
 
+/* Form elements */
 
-/*Form Elements*/
 form {
     margin: 0;
     padding: 40px;
     font-size: 1rem;
 }
+
 input {
   width: 100%;
   border: 0;
@@ -203,10 +203,12 @@ input {
   margin: 0 0 20px;
   color: #777B7E;
 }
+
 input:focus {
   border-color: #7A9D96;
   color: #2C3238;
 }
+
 textarea {
   width: 100%;
   border: 0;
@@ -217,10 +219,12 @@ textarea {
   margin: 0 0 20px;
   color: #777B7E;
 }
+
 textarea:focus {
   border-color: #7A9D96;
   color: #2C3238;
 }
+
 button#submit {
   width: 100%;
   padding: 20px 0;
@@ -237,7 +241,8 @@ button#submit:hover {
   opacity: 1;
 }
 
-/*Notifications*/
+/* Notifications */
+
 .notification {
   text-align: center;
   padding: 10px 20px;
@@ -245,19 +250,21 @@ button#submit:hover {
   color: #fff;
   font-size: 0.9rem;
 }
+
 .success {
   background: #43DC7E;
   color: white;
 }
+
 .error {
   background: #AB3444;
   color: white;
   margin-bottom: 20px;
 }
 
+/* Footer */
 
-/*Footer*/
-footer{
+footer {
   color: white;
   text-align: center;
   font-size: .875em;
@@ -272,7 +279,7 @@ footer p a {
   color: white;
 }
 
-img.profile{
+img.profile {
   height: 80px;
   width: 80px;
   margin-right: 10px;
@@ -281,11 +288,12 @@ img.profile{
 }
 
 
-.follow-button{
+.follow-button {
   color: white;
 }
 
-/*Media Queries*/
+/* Media queries */
+
 @media (max-width: 786px) {
   .main {
     width: 95%;
