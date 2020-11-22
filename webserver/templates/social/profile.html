@@ -5,23 +5,13 @@
 <div class="profile">
 	<img src="{% if user.profile.image %} {{ user.profile.image.url }} {% else %} /media/batman.png {% endif %}">
 	<h2>@{{ user.username }}</h2>
-	<button><a class="follow-button" href="#">Follow</a></button>
 </div>
 
 <!-- Follow items -->
 <div class="follow">
 	<div>
-		<h5>Post</h5>
+		<h5>Noticias</h5>
 		<p>{{ user.news.count }}</p>
-	</div>
-	<div>
-		<h5>Followers</h5>
-		<p>0</p>
-
-	</div>
-	<div>
-		<h5>Following</h5>
-		<p>0</p>
 	</div>
 </div>
 
