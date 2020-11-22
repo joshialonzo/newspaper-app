@@ -4,6 +4,34 @@ body {
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
 
+.hero {
+    background: #780000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* logo */
+
+.app-logo {
+    width: 30%;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .app-logo {
+        animation: app-logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes app-logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
 /* Global styles */
 
 h1 {}
@@ -24,7 +52,7 @@ button {
 	color: white;
 	padding: 0.4rem 1.4rem;
 	border: none;
-	background: #7A9D96;
+	background: #f1c40f;
 	 border-radius: 4px;
 	cursor: pointer;
 }
@@ -107,7 +135,7 @@ a {
 	flex: 6 1 5rem;
 	text-align: right;
 	text-transform: uppercase;
-  	color: #7A9D96;
+  	color: #f1c40f;
 }
 
 .second-nav .new:hover {
@@ -151,7 +179,7 @@ time {
   opacity: .7;
 }
 
-.post {
+.new {
 	font-size: .94rem;
 }
 
@@ -231,7 +259,7 @@ button#submit {
   width: 100%;
   padding: 20px 0;
   text-align: center;
-  background: #7A9D96;
+  background: #f1c40f;
   color: #fff;
   border: 0;
   border-radius: 4px;
@@ -266,20 +294,7 @@ button#submit:hover {
 
 /* Footer */
 
-footer {
-  color: white;
-  text-align: center;
-  font-size: .875em;
-  margin: 40px 0;
-}
 
-footer p {
-  opacity: .8;
-}
-
-footer p a {
-  color: white;
-}
 
 img.profile {
   height: 80px;

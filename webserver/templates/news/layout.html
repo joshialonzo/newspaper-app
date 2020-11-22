@@ -2,65 +2,23 @@
 {% load static %}
 <html>
 <head>
-	<title>Consigna Yucatán</title>
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-        <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" type="text/css" href="{% static 'normalize.css' %}">
+	<title>Consigna Yucatán</title>
+	<link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'favicon.ico' %}">
+	<link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+	<!-- font-awesome -->
+	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
 <body>
 
-	<header class="main-head">
-		<nav class="main">
-			<a id="logo" href="{% url 'feed' %}"><img src="{% static 'consigna.png' %}" style="width: 200px;" /></a>
-			<ul>
-				{% if request.user.is_authenticated and request.user.is_staff %}
-						<li><a href="{% url 'logout' %}">Logout</a></li>
-						<li><a href="{% url 'register' %}">Register</a></li>
-				{% endif %}
-			</ul>
-		</nav>
-	</header>
+	{% block content %}
+	{% endblock %}
 
-	<!-------------------------------------
-					Messages 
-	-------------------------------------->
-	{% if messages %}
-		{% for message in messages %}
-		<div class="notification {{ message.tags }}">{{ message }}</div>
-		{% endfor %}
-	{% endif %}
-
-	<!-------------------------------------
-					Navigation Bar 
-	-------------------------------------->
-	<div class="main">
-		
-		<nav class="second-nav">
-			<a class="feed" href="{% url 'feed' %}">Inicio</a>
-			{% if request.user.is_authenticated and request.user.is_staff %}
-			<a class="profile" href="{% url 'profile' %}">Mi Perfil</a>
-			<a class="new" href="{% url 'new' %}">Crear nueva noticia</a>
-			{% endif %}
-		</nav>
-
-
-		{% block content %}
-
-		{% endblock content %}
-
-
-
-	</div>
-
-	<footer>
-		<div class="row">
-			<p>
-				Consigna Yucatán {% now "Y" %}<br>
-				Made with <span>❤</span> by Consigna</a>
-			</p>
-		</div>
-	</footer>
+	{% include 'base/footer.html' %}
 
 </body>
 </html>
