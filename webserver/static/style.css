@@ -1,8 +1,9 @@
-body{
+body {
 	background: #780000;
 	font-size: 62.5%;
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
+
 /* Global styles */
 
 h1 {}
@@ -78,6 +79,7 @@ a {
 }
 
 /* Navigation bar */
+
 .second-nav {
 	display: flex;
 	padding: 15px 30px;

@@ -1,5 +1,5 @@
-{% load static %}
 <!DOCTYPE html>
+{% load static %}
 <html>
 <head>
 	<title>Consigna Yucatán</title>
@@ -24,6 +24,11 @@
 	<!-------------------------------------
 					Messages 
 	-------------------------------------->
+	{% if messages %}
+		{% for message in messages %}
+		<div class="notification {{ message.tags }}">{{ message }}</div>
+		{% endfor %}
+	{% endif %}
 
 	<!-------------------------------------
 					Navigation Bar 

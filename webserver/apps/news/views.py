@@ -12,4 +12,4 @@ def feed(request):
     context = {
         'news': news
     }
-    return render(request, 'social/feed.html', context)
+    return render(request, 'news/feed.html', context)
