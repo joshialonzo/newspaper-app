@@ -13,8 +13,10 @@ dist/
 # Compiled Python bytecode
 *.py[cod]
 
-Local files
+# Local files
 db.sqlite3
+media/
+!media/batman.png
 
 # Log files
 *.log

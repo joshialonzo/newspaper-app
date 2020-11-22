@@ -6,7 +6,7 @@
 {% for new in news %}
 <article>
     <div class="container-article">
-        <img src="../../static/batman.png">
+        <img src="{% if new.user.profile.image %} {{ new.user.profile.image.url }} {% else %} /media/batman.png {% endif %}">
         <div>
             <h2 class="username"><a href="#">@{{ new.user.username }}</a></h2>
             <i class="clock"></i>
