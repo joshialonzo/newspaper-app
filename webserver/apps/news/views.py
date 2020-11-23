@@ -13,10 +13,20 @@ from .models import Resource
 # Create your views here.
 
 
+def coming_soon(request):
+    return render(request, 'news/coming_soon.html')
+
+
 def news_list(request):
+    sections = [
+        {'name': 'México'},
+        {'name': 'Yucatán'},
+        {'name': 'Mérida'},
+    ]
     news = New.objects.all()
     context = {
-        'news': news
+        'sections': sections,
+        'news': news,
     }
     return render(request, 'news/list.html', context)
 
