@@ -1,3 +1,6 @@
+# built-in python modules
+import uuid
+
 # built-in django modules
 from django.contrib.auth.models import User
 from django.db import models
@@ -7,6 +10,7 @@ from django.utils import timezone
 
 
 class New(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
     timestamp = models.DateTimeField(default=timezone.now)
     content = models.TextField()
