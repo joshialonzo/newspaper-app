@@ -12,11 +12,12 @@ from django.utils import timezone
 class New(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
-    timestamp = models.DateTimeField(default=timezone.now)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     content = models.TextField()
 
     class Meta:
-        ordering = ['-timestamp']
+        ordering = []
 
     def __str__(self):
         return f'{self.author.username}: {self.content}'
