@@ -22,7 +22,8 @@
             {{ new.content|safe }} <a>@consigna_yucatan</a>.
             <a href="#">#merida</a> <a href="#">#yucatan</a>
             <br>
-            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+            <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time><br>
+            <a href="{% url 'news_detail' new.id %}" class="button is-danger">Leer</a>
             </div><!-- content -->
         </div><!-- card-content -->
     </div><!-- card -->
