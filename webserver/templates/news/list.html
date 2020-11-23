@@ -1,0 +1,89 @@
+{% extends 'news/layout.html' %}
+{% load humanize %}
+
+{% block content %}
+
+    {% include "base/logo.html" %}
+
+    <!-- /.sections -->
+    <section class="section has-background-light">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-content">
+                              <p class="title is-4">Mérida</p>
+                              <p class="subtitle is-6">@consigna_yucatan</p>
+                            </div><!-- media-content -->
+                          </div><!-- media -->
+
+                          <div class="content">
+                          </div><!-- content -->
+                        </div><!-- card-content -->
+                    </div><!-- card -->
+                </div><!-- column -->
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-content">
+                              <p class="title is-4">Yucatán</p>
+                              <p class="subtitle is-6">@consigna_yucatan</p>
+                            </div><!-- media-content -->
+                          </div><!-- media -->
+
+                          <div class="content">
+                          </div><!-- content -->
+                        </div><!-- card-content -->
+                      </div><!-- card -->
+                </div>
+                <div class="column">
+                    <div class="card">
+                        <div class="card-image">
+                          <figure class="image is-4by3">
+                            <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+                          </figure>
+                        </div>
+                        <div class="card-content">
+                          <div class="media">
+                            <div class="media-content">
+                              <p class="title is-4">México</p>
+                              <p class="subtitle is-6">@consigna_yucatan</p>
+                            </div><!-- media-content -->
+                          </div><!-- media -->
+
+                          <div class="content">
+                          </div><!-- content -->
+                        </div><!-- card-content -->
+                      </div><!-- card -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- /.sections -->
+
+        <!-- /.news -->
+    <section class="section">
+        <div class="container">
+            <div class="columns is-multiline">
+                {% for new in news %}
+                    {% include "news/news_card.html" %}
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!-- /.news -->
+
+{% endblock %}

@@ -1,4 +1,5 @@
 # built-in python modules
+import datetime
 import uuid
 
 # built-in django modules
@@ -32,3 +33,31 @@ class New(models.Model):
 
     def __str__(self):
         return f'{self.author.username}: {self.content}'
+
+    def get_first_image(self):
+        return self.resource_set.first() if self.resource_set else None
+
+
+def media_resource_folder(instance, filename):
+    """file will be uploaded to MEDIA_ROOT/<username>/2020/09/02/<new_filename>
+    :param instance: resource instance with a user
+    :param filename: filename of the image
+    :return: path of the new filename
+    """
+    today = datetime.date.today()
+    today_path = today.strftime('%Y/%m/%d')
+    extension = filename.split('.')[-1].lower()
+    return f'resources/{instance.author.username}/{today_path}/{uuid.uuid4()}.{extension}'
+
+
+class Resource(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='resources')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    new = models.ForeignKey(New, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to=media_resource_folder)
+    objects = models.Manager()
+
+    def __str__(self):
+        return self.new.title

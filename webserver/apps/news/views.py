@@ -8,19 +8,30 @@ from django.shortcuts import render
 # custom django modules
 from .forms import NewForm
 from .models import New
+from .models import Resource
 
 # Create your views here.
 
 
-def feed(request):
+def news_list(request):
     news = New.objects.all()
     context = {
         'news': news
     }
-    return render(request, 'news/feed.html', context)
+    return render(request, 'news/list.html', context)
 
 
-def new(request):
+def news_detail(request, id):
+    new = get_object_or_404(New, id=id)
+    images = Resource.objects.filter(new=new)
+    context = {
+        'new': new,
+        'images': images,
+    }
+    return render(request, 'news/detail.html', context)
+
+
+def news_add(request):
     current_user = get_object_or_404(User, pk=request.user.pk)
     if request.method == 'POST':
         form = NewForm(request.POST)
@@ -32,4 +43,4 @@ def new(request):
             return redirect('feed')
     else:
         form = NewForm()
-    return render(request, 'news/new.html', {'form': form})
+    return render(request, 'news/add.html', {'form': form})

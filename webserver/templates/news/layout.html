@@ -6,9 +6,16 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Consigna Yucatán</title>
 	<link rel="icon" type="image/vnd.microsoft.icon" href="{% static 'favicon.ico' %}">
-	<link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.0/css/bulma.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+	<!-- bulma -->
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css"
+		  rel="stylesheet" type='text/css'>
+	<!-- bulma-carousel -->
+	<link href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.3/dist/css/bulma-carousel.min.css"
+		  rel="stylesheet" type='text/css'>
+	<!-- google-fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Varela+Round'
+		  rel='stylesheet' type='text/css'>
+	<!-- custom-styles -->
 	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
 	<!-- font-awesome -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
@@ -20,5 +27,7 @@
 
 	{% include 'base/footer.html' %}
 
+	{% block scripts %}
+	{% endblock %}
 </body>
 </html>
