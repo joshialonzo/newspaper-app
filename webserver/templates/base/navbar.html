@@ -1,0 +1,56 @@
+{% load static %}
+<!-- Navbar -->
+<nav class="navbar">
+    <div class="container">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="{% url 'news_list' %}">
+          <img src="{% static 'consigna.png' %}" alt="Logo de Consigna Yucatán">
+          <h1>Consigna Yucatán</h1>
+        </a>
+        <span class="navbar-burger burger" data-target="navbarMenu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </span>
+      </div>
+      <div id="navbarMenu" class="navbar-menu">
+        <div class="navbar-end">
+          <div class=" navbar-item">
+            <div class="control has-icons-left">
+              <input class="input is-rounded" type="email" placeholder="Buscar noticias">
+              <span class="icon is-left">
+                <i class="fa fa-search"></i>
+              </span>
+            </div>
+          </div>
+          <a class="navbar-item is-active is-size-5 has-text-weight-semibold" href="{% url 'coming_soon' %}">
+            México
+          </a>
+          <a class="navbar-item is-size-5 has-text-weight-semibold" href="{% url 'coming_soon' %}">
+            Yucatán
+          </a>
+          <a class="navbar-item is-size-5 has-text-weight-semibold" href="{% url 'coming_soon' %}">
+            Mérida
+          </a>
+        </div>
+      </div>
+
+        {% if request.user.is_authenticated and request.user.is_staff %}
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="buttons">
+                    <a class="button is-primary" href="{% url 'register' %}">
+                        <strong>Registrar</strong>
+                    </a>
+                    <a class="button is-light" href="{% url 'login' %}">
+                        Entrar
+                    </a>
+                    <a class="button is-danger" href="{% url 'logout' %}">
+                        Salir
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div><!-- container -->
+</nav><!-- Navbar -->

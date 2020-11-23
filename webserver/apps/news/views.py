@@ -34,9 +34,11 @@ def news_list(request):
 def news_detail(request, id):
     new = get_object_or_404(New, id=id)
     images = Resource.objects.filter(new=new)
+    news = New.objects.all()[:4]
     context = {
         'new': new,
         'images': images,
+        'news': news,
     }
     return render(request, 'news/detail.html', context)
 
