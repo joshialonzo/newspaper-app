@@ -6,6 +6,9 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
+# third-party django modules
+from ckeditor.fields import RichTextField
+
 # Create your models here.
 
 
@@ -22,7 +25,7 @@ class New(models.Model):
     slug = models.SlugField(unique=True, null=True)
     status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)
     publication = models.DateTimeField(default=timezone.now)
-    content = models.TextField()
+    content = RichTextField(blank=True, null=True)
 
     class Meta:
         ordering = ['-publication']
