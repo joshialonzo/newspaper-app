@@ -1,14 +1,14 @@
 body {
 	background: #780000;
-	font-size: 62.5%;
 	font-family: 'Varela Round', Helvetica, Arial, serif;
 }
 
-.hero {
+.hero-logo {
     background: #780000;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100vh;
 }
 
 /* logo */
