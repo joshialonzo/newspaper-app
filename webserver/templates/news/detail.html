@@ -7,29 +7,55 @@
 
 <!-- News detail -->
 <section class="hero has-background-white">
-<div class="hero-body">
-  <div class="container">
-	<div class="columns">
-	  <div class="column is-8 is-offset-2">
-		<figure class="image is-16by9">
-		  <img src="{{ new.get_first_image.image.url }}" alt="{{ new.title }}">
-		</figure>
+	<div class="hero-body">
+	  <div class="container">
+		<div class="columns">
+			<div class="column is-8 is-offset-2">
+				<h1 class="title">{{ new.title }}</h1>
+				<h2 class="subtitle">Subtítulo de la noticia</h2>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="column is-8 is-offset-2">
+				<figure class="image is-16by9">
+				  <img src="{{ new.get_first_image.image.url }}" alt="{{ new.title }}">
+				</figure>
+			</div>
+		</div>
+		<div class="columns">
+			<div class="column is-2	is-offset-2">
+				<span class="icon has-text-warning">
+					<i class="fas fa-square"></i>
+			  	</span>
+				Sección: Internacional
+			</div>
+		  	<div class="is-divider-vertical" data-content="|"></div>
+			<div class="column is-2">
+				<span class="icon">
+					<i class="fas fa-user"></i>
+			  	</span>
+				Por Consigna Yucatán
+			</div>
+			<div class="is-divider-vertical" data-content="|"></div>
+			<div class="column is-3">
+				<span class="icon">
+					<i class="fas fa-calendar-alt"></i>
+			  	</span>
+				13 de diciembre de 2020 · 12:55
+			</div>
+		</div>
+
+		<section class="section">
+			<div class="columns">
+				<div class="column is-8 is-offset-2">
+					<div class="content is-medium">
+						{{ new.content|safe }}
+					</div>
+				</div>
+			</div>
+		</section>
 	  </div>
 	</div>
-
-	<section class="section">
-	  <div class="columns">
-		<div class="column is-8 is-offset-2">
-		  <div class="content is-medium">
-			<h2 class="subtitle is-4">December 25, 2018</h2>
-			<h1 class="title">{{ new.title }}</h1>
-			{{ new.content|safe }}
-		  </div>
-		</div>
-	  </div>
-	</section>
-  </div>
-</div>
 </section>
 
 {% include 'base/newsletter.html' %}
