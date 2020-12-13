@@ -80,6 +80,7 @@ class Resource(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     new = models.ForeignKey(New, on_delete=models.CASCADE)
     image = models.ImageField(upload_to=media_resource_folder)
+    youtube_video = models.URLField(blank=True)
     objects = models.Manager()
 
     def __str__(self):
