@@ -32,10 +32,15 @@ class New(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255, blank=True)
+    subtitle = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, null=True)
     status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)
     publication = models.DateTimeField(default=timezone.now)
     content = RichTextField(blank=True, null=True)
+    section = models.ForeignKey(Section,
+                                on_delete=models.CASCADE,
+                                related_name='news',
+                                null=True, blank=True)
 
     class Meta:
         ordering = ['-publication']
