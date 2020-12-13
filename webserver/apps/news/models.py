@@ -14,12 +14,21 @@ from ckeditor.fields import RichTextField
 
 
 class Section(models.Model):
+    COLOR_CHOICES = (
+        ('warning', 'Warning'),
+        ('danger', 'Danger'),
+        ('info', 'Info'),
+        ('success', 'Success'),
+        ('link', 'Link'),
+        ('primary', 'Primary'),
+    )
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sections')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255, blank=True)
     slug = models.SlugField(unique=True, null=True)
+    color = models.CharField(choices=COLOR_CHOICES, default='info', max_length=20)
 
 
 class New(models.Model):
