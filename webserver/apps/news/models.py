@@ -13,6 +13,15 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 
+class Section(models.Model):
+    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sections')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    title = models.CharField(max_length=255, blank=True)
+    slug = models.SlugField(unique=True, null=True)
+
+
 class New(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),

@@ -2,10 +2,16 @@
 from django.contrib import admin
 
 # custom django modules
+from .models import Section
 from .models import New
 from .models import Resource
 
 # Register your models here.
+
+
+@admin.register(Section)
+class SectionAdmin(admin.ModelAdmin):
+    pass
 
 
 class ResourceAdmin(admin.StackedInline):
