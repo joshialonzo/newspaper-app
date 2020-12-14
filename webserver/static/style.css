@@ -34,4 +34,21 @@ body {
 
 .navbar-item img {
     max-height: 5rem;
+    object-fit: cover;
+}
+
+
+section.has-carousel {
+    height: 90vh;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+ section.has-carousel {
+    height: 0vh;
+}
+}
+
+.hast-text-white {
+    color: white;
 }
