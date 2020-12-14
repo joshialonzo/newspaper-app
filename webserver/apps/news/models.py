@@ -13,28 +13,16 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 
 
-class Section(models.Model):
-    COLOR_CHOICES = (
-        ('warning', 'Warning'),
-        ('danger', 'Danger'),
-        ('info', 'Info'),
-        ('success', 'Success'),
-        ('link', 'Link'),
-        ('primary', 'Primary'),
-    )
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='sections')
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    title = models.CharField(max_length=255, blank=True)
-    slug = models.SlugField(unique=True, null=True)
-    color = models.CharField(choices=COLOR_CHOICES, default='info', max_length=20)
-
-
 class New(models.Model):
     STATUS_CHOICES = (
         ('draft', 'Draft'),
         ('published', 'Published'),
+    )
+    SECTION_CHOICES = (
+        ('local', 'Yucatán'),
+        ('national', 'México'),
+        ('international', 'International'),
+        ('entertainment', 'Entertainment'),
     )
     id = models.UUIDField(default=uuid.uuid4, primary_key=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='news')
@@ -46,10 +34,7 @@ class New(models.Model):
     status = models.CharField(choices=STATUS_CHOICES, default='draft', max_length=10)
     publication = models.DateTimeField(default=timezone.now)
     content = RichTextField(blank=True, null=True)
-    section = models.ForeignKey(Section,
-                                on_delete=models.CASCADE,
-                                related_name='news',
-                                null=True, blank=True)
+    section = models.CharField(choices=SECTION_CHOICES, default='local', max_length=20)
 
     class Meta:
         ordering = ['-publication']
@@ -59,6 +44,15 @@ class New(models.Model):
 
     def get_first_image(self):
         return self.resource_set.first() if self.resource_set else None
+
+    def get_color(self):
+        colors = {
+            'local': 'danger',
+            'national': 'warning',
+            'international': 'info',
+            'entertainment': 'link',
+        }
+        return colors[str(self.section)]
 
 
 def media_resource_folder(instance, filename):

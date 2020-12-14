@@ -19,9 +19,34 @@ def coming_soon(request):
 
 def news_list(request):
     sections = [
-        {'name': 'México'},
-        {'name': 'Yucatán'},
-        {'name': 'Mérida'},
+        {
+            'title': 'Locales',
+            'subtitle': 'Sobre Yucatán',
+            'color': 'danger',
+            'img': 'yucatan.jpg',
+            'url': '/section/locales',
+        },
+        {
+            'title': 'Nacionales',
+            'subtitle': 'Sobre México',
+            'color': 'warning',
+            'img': 'mexico.jpg',
+            'url': '/section/nacionales',
+        },
+        {
+            'title': 'Mundo',
+            'subtitle': 'Internacional',
+            'color': 'info',
+            'img': 'internacional.jpeg',
+            'url': '/section/mundo',
+        },
+        {
+            'title': 'Entretenimiento',
+            'subtitle': 'Memes y más',
+            'color': 'link',
+            'img': 'memes.jpeg',
+            'url': '/section/memes',
+        },
     ]
     news = New.objects.all()
     context = {
@@ -56,3 +81,19 @@ def news_add(request):
     else:
         form = NewForm()
     return render(request, 'news/add.html', {'form': form})
+
+
+def section_detail(request, name):
+    name_dict = {
+    'locales': 'local',
+    'nacionales': 'national',
+    'mundo': 'international',
+    'memes': 'entertainment',
+    }
+    news = New.objects.filter(
+        section=name_dict[name])
+    context = {
+        'name': name,
+        'news': news,
+    }
+    return render(request, 'news/section.html', context)
