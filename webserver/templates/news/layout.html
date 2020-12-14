@@ -22,7 +22,11 @@
 	<!-- font-awesome -->
 	<script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
 </head>
-<body>
+<body class="has-navbar-fixed-top">
+
+	{% block navbar %}
+	{% include 'base/navbar.html' %}
+	{% endblock %}
 
 	{% block content %}
 	{% endblock %}

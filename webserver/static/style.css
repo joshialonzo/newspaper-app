@@ -31,3 +31,7 @@ body {
         transform: rotate(360deg);
     }
 }
+
+.navbar-item img {
+    max-height: 5rem;
+}
