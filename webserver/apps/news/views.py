@@ -57,11 +57,30 @@ def news_list(request):
 
 
 def news_detail(request, id):
+    MONTHS = {
+        1: 'Enero', 2: 'Febrero',
+        3: 'Marzo', 4: 'Abril',
+        5: 'Mayo', 6: 'Junio',
+        7: 'Julio', 8: 'Agosto',
+        9: 'Septiembre', 10: 'Octubre',
+        11: 'Noviembre', 12: 'Diciembre',
+    }
     new = get_object_or_404(New, id=id)
+    new_date = new.created_at
+    new_day = new_date.day
+    new_month = MONTHS[new_date.month]
+    new_year = new_date.year
+    new_hours = new_date.hour
+    new_minutes = new_date.minute
+    date_str = f'{new_day} de {new_month} de {new_year}'
+    time_str = f'{new_hours}:{new_minutes}'
+    space = ' · '
+    datetime_str = date_str + space + time_str
     images = Resource.objects.filter(new=new)
     news = New.objects.all()[:4]
     context = {
         'new': new,
+        'new_date': datetime_str,
         'images': images,
         'news': news,
     }
@@ -85,10 +104,10 @@ def news_add(request):
 
 def section_detail(request, name):
     name_dict = {
-    'locales': 'local',
-    'nacionales': 'national',
-    'mundo': 'international',
-    'memes': 'entertainment',
+        'locales': 'local',
+        'nacionales': 'national',
+        'mundo': 'international',
+        'memes': 'entertainment',
     }
     news = New.objects.filter(
         section=name_dict[name])

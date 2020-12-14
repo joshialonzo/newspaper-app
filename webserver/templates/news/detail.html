@@ -9,7 +9,7 @@
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
 				<h1 class="title">{{ new.title }}</h1>
-				<h2 class="subtitle">Subtítulo de la noticia</h2>
+				<h2 class="subtitle">{{ new.subtitle }}</h2>
 			</div>
 		</div>
 		<div class="columns">
@@ -21,10 +21,10 @@
 		</div>
 		<div class="columns">
 			<div class="column is-2	is-offset-2">
-				<span class="icon has-text-warning">
+				<span class="icon has-text-{{ new.get_color }}">
 					<i class="fas fa-square"></i>
 			  	</span>
-				Sección: Internacional
+				Sección: {{ new.get_section_display }}
 			</div>
 		  	<div class="is-divider-vertical" data-content="|"></div>
 			<div class="column is-2">
@@ -38,7 +38,7 @@
 				<span class="icon">
 					<i class="fas fa-calendar-alt"></i>
 			  	</span>
-				13 de diciembre de 2020 · 12:55
+				{{ new_date }}
 			</div>
 		</div>
 
