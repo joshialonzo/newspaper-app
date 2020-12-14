@@ -48,10 +48,12 @@ def news_list(request):
             'url': '/section/memes',
         },
     ]
-    news = New.objects.all()
+    last_5_news = New.objects.all()[:5]
+    last_10_news = New.objects.all()[:10]
     context = {
         'sections': sections,
-        'news': news,
+        'last_5_news': last_5_news,
+        'last_10_news': last_10_news,
     }
     return render(request, 'news/list.html', context)
 

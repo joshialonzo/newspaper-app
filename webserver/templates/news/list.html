@@ -3,27 +3,21 @@
 
 {% block content %}
     <!-- Start Hero Carousel -->
-    <section class="hero is-medium has-carousel">
-        <div id="carousel-demo" class="hero-carousel">
-            <div class="item-1">
-                <!-- Slide Content -->
-                <img src="http://placekitten.com/1928/1286" alt="Imagen de gatito">
-            </div>
-            <div class="item-2">
-                <!-- Slide Content -->
-                <img src="http://placekitten.com/1928/1286" alt="Imagen de gatito">
-            </div>
-            <div class="item-3">
-                <!-- Slide Content -->
-                <img src="http://placekitten.com/1928/1286" alt="Imagen de gatito">
-            </div>
-        </div>
-        <div class="hero-head"></div>
-        <div class="hero-body has-text-centered">
-            <h1 class="title hast-text-white">Últimas noticias</h1>
-        </div>
-        <div class="hero-foot"></div>
-    </section>
+<!--    <section class="hero is-medium has-carousel">-->
+<!--        <div id="carousel-demo" class="hero-carousel">-->
+<!--            {% for new in last_5_news %}-->
+<!--            <div class="item-{{ forloop.counter }}">-->
+<!--                &lt;!&ndash; Slide Content &ndash;&gt;-->
+<!--                <img src="{{ new.get_first_image.image.url }}" alt="{{ new.title }}">-->
+<!--            </div>-->
+<!--            {% endfor %}-->
+<!--        </div>-->
+<!--        <div class="hero-head"></div>-->
+<!--        <div class="hero-body has-text-centered">-->
+<!--            <h1 class="title hast-text-white">Últimas noticias</h1>-->
+<!--        </div>-->
+<!--        <div class="hero-foot"></div>-->
+<!--    </section>-->
     <!-- End Hero Carousel -->
 
     <!-- /.sections -->
@@ -42,7 +36,7 @@
     <section class="section">
         <div class="container">
             <div class="columns is-multiline">
-                {% for new in news %}
+                {% for new in last_10_news %}
                     {% include "news/news_card.html" %}
                 {% endfor %}
             </div>
