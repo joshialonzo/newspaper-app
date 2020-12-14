@@ -54,6 +54,26 @@ class New(models.Model):
         }
         return colors[str(self.section)]
 
+    def get_date_string(self):
+        MONTHS = {
+            1: 'Enero', 2: 'Febrero',
+            3: 'Marzo', 4: 'Abril',
+            5: 'Mayo', 6: 'Junio',
+            7: 'Julio', 8: 'Agosto',
+            9: 'Septiembre', 10: 'Octubre',
+            11: 'Noviembre', 12: 'Diciembre',
+        }
+        new_date = self.created_at
+        new_day = new_date.day
+        new_month = MONTHS[new_date.month]
+        new_year = new_date.year
+        new_hours = new_date.hour
+        new_minutes = new_date.minute
+        date_str = f'{new_day} de {new_month} de {new_year}'
+        time_str = f'{new_hours}:{new_minutes}'
+        space = ' · '
+        return date_str + space + time_str
+
 
 def media_resource_folder(instance, filename):
     """file will be uploaded to MEDIA_ROOT/<username>/2020/09/02/<new_filename>
