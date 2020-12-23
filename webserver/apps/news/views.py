@@ -10,6 +10,7 @@ from .forms import NewForm
 from .models import New
 from .models import Resource
 
+
 # Create your views here.
 
 
@@ -92,3 +93,8 @@ def section_detail(request, name):
         'news': news,
     }
     return render(request, 'news/section.html', context)
+
+
+def yucatan_news(request):
+    news = New.objects.filter(section='Local').order_by('-pub_date')[0:5]
+    return render(request, 'news/list.html', {'new': news})

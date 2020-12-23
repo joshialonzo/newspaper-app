@@ -58,16 +58,26 @@
 <!-- end carousel -->
 
 <!-- /.sections -->
-<section class="section has-background-light">
+<div class="album py-5 bg-light">
     <div class="container">
-        <div class="title">Secciones</div>
-        <div class="columns">
-            {% for section in sections %}
-            {% include 'news/section_card.html' %}
-            {% endfor %}
+      <h1 class="h1">Yucatán</h1>
+
+      {% for new in news %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card" >
+            <img src="static/landscapes/gran-canon.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{ news.title }}</h5>
+              <p class="card-text">{{ news.subtitle}}</p>
+              <a href="#" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
         </div>
+      {% endfor %}
+      </div>
     </div>
-</section>
+  </div>
 <!-- /.sections -->
 
 <!-- /.sections -->
