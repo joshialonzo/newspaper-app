@@ -44,7 +44,6 @@ def news_list(request):
     ]
     last_5_news = New.objects.all()[:5]
     last_10_news = New.objects.all()[:10]
-    last_5_local_news = New.objects.filter_by()
     context = {
         'sections': sections,
         'last_5_news': last_5_news,
