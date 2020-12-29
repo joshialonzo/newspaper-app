@@ -10,6 +10,7 @@ from .forms import NewForm
 from .models import New
 from .models import Resource
 
+
 # Create your views here.
 
 
@@ -92,3 +93,8 @@ def section_detail(request, name):
         'news': news,
     }
     return render(request, 'news/section.html', context)
+
+
+def card_filters(request):
+    local_posts = New.objects.filter(section='local').order_by('-created_at')[0:5]
+    return render(request, 'blog/about.html', {'local_post': local_posts})
