@@ -1,9 +1,10 @@
-{% load static %}
-<div class="card" style="width: 18rem;">
-  <img class="card-img-top" src="..." alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">{{ local_post.title }}</h5>
-    <p class="card-text">{{ local_post.subtitle }}</p>
-    <a href="#" class="btn btn-primary">{{ local_post.created_at }}</a>
+<div class="column is-one-quarter">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ new.get_first_image.image.url }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ new.title }}</h5>
+      <p class="card-text">{{ new.subtitle }}</p>
+      <a href="#" class="btn btn-primary">{{ new.created_at }}</a>
+    </div>
   </div>
 </div>

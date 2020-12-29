@@ -44,6 +44,7 @@ def news_list(request):
     ]
     last_5_news = New.objects.all()[:5]
     last_10_news = New.objects.all()[:10]
+    last_5_local_news = New.objects.filter_by()
     context = {
         'sections': sections,
         'last_5_news': last_5_news,
@@ -96,5 +97,5 @@ def section_detail(request, name):
 
 
 def card_filters(request):
-    local_posts = New.objects.filter(section='local').order_by('-created_at')[0:5]
-    return render(request, 'blog/about.html', {'local_post': local_posts})
+    local_news = New.objects.filter(section='local').order_by('-created_at')[0:5]
+    return render(request, 'blog/about.html', {'local_new': local_news})
