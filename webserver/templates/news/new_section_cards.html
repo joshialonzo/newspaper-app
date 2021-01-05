@@ -1,0 +1,10 @@
+<div class="col-sm">
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{ new.get_first_image.image.url }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ new.title }}</h5>
+      <p class="card-text">{{ new.created_at }}</p>
+      <a href="{{ new.slug }}" class="btn btn-primary bg-{{ new.get_color }}">ver noticia</a>
+    </div>
+  </div>
+</div>

@@ -44,10 +44,18 @@ def news_list(request):
     ]
     last_5_news = New.objects.all()[:5]
     last_10_news = New.objects.all()[:10]
+    local_5_news = New.objects.filter(section='local').order_by('-created_at')[0:5]
+    national_5_news = New.objects.filter(section='national').order_by('-created_at')[0:5]
+    international_5_news = New.objects.filter(section='international').order_by('-created_at')[0:5]
+    entertainment_5_news = New.objects.filter(section='entertainment').order_by('-created_at')[0:5]
     context = {
         'sections': sections,
         'last_5_news': last_5_news,
         'last_10_news': last_10_news,
+        'local_5_news': local_5_news,
+        'national_5_news': national_5_news,
+        'international_5_news': international_5_news,
+        'entertainment_5_news': entertainment_5_news,
     }
     return render(request, 'news/list.html', context)
 

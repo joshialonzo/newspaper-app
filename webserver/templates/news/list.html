@@ -21,20 +21,6 @@
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </div>
             </div>
-            <div class="carousel-item">
-                <img src="static/landscapes/national-park.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="static/landscapes/gran-canon.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </div>
-            </div>
             {% for new in last_5_news %}
             <div class="carousel-item">
                 <img src="{{ new.get_first_image.image.url }}" class="d-block w-100" alt="{{ new.title }}">
@@ -58,26 +44,46 @@
 <!-- end carousel -->
 
 <!-- /.sections -->
-<div class="album py-5 bg-light">
+<section class="section has-background-light">
     <div class="container">
-      <h1 class="h1">Yucatán</h1>
-
-      {% for new in news %}
-      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
-          <div class="card" >
-            <img src="static/landscapes/gran-canon.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">{{ news.title }}</h5>
-              <p class="card-text">{{ news.subtitle}}</p>
-              <a href="#" class="btn btn-primary">Ver más</a>
-            </div>
-          </div>
+        <div class="title">Yucatán</div>
+        <div class="columns">
+            {% for new in local_5_news %}
+            {% include 'news/new_section_cards.html' %}
+            {% endfor %}
         </div>
-      {% endfor %}
-      </div>
     </div>
-  </div>
+</section>
+<section class="section has-background-light">
+    <div class="container">
+        <div class="title">Nacional</div>
+        <div class="columns">
+            {% for new in national_5_news %}
+            {% include 'news/new_section_cards.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="section has-background-light">
+    <div class="container">
+        <div class="title">Internacional</div>
+        <div class="columns">
+            {% for new in international_5_news %}
+            {% include 'news/new_section_cards.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<section class="section has-background-light">
+    <div class="container">
+        <div class="title">Memes</div>
+        <div class="columns">
+            {% for new in entertainment_5_news %}
+            {% include 'news/new_section_cards.html' %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
 <!-- /.sections -->
 
 <!-- /.sections -->
