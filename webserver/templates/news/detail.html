@@ -1,7 +1,11 @@
 {% extends 'news/layout.html' %}
 {% load humanize %}
+{% load tz %}
+
 
 {% block content %}
+<br><br><br><br>
+
 <!-- News detail -->
 <section class="hero has-background-white">
 	<div class="hero-body">
@@ -38,7 +42,9 @@
 				<span class="icon">
 					<i class="fas fa-calendar-alt"></i>
 			  	</span>
-				{{ new.get_date_string }}
+				{% localtime on %}
+      			{{ new.created_at }}
+      			{% endlocaltime %}
 			</div>
 		</div>
 

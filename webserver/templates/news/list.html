@@ -1,7 +1,10 @@
 {% extends 'news/layout.html' %}
 {% load humanize %}
 
+
 {% block content %}
+<br><br><br>
+
 <!-- carousel -->
 <div class="container">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -73,7 +76,7 @@
 </section>
 <section class="section has-background-light">
     <div class="container">
-        <div class="title">Memes</div>
+        <div class="title">Entretenimiento</div>
         <div class="columns">
             {% for new in entertainment_5_news %}
                 {% include 'news/new_section_card.html' %}

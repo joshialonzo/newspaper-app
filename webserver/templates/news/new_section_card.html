@@ -1,10 +1,15 @@
+{% load tz %}
+
+
 <div class="col-sm">
   <div class="card" style="width: 18rem;">
     <img class="card-img-top" src="{{ new.get_first_image.image.url }}" alt="Card image cap">
     <div class="card-body">
       <h5 class="card-title">{{ new.title }}</h5>
+      {% localtime on %}
       <p class="card-text">{{ new.created_at }}</p>
-      <a href="{{ new.slug }}" class="btn btn-primary bg-danger">ver noticia</a>
+      {% endlocaltime %}
+      <a href="{% url 'news_detail' new.id %}" class="btn btn-primary bg-{{ new.get_color }}">Ver noticia</a>
     </div>
   </div>
 </div>
