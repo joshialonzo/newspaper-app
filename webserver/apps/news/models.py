@@ -46,6 +46,13 @@ class New(models.Model):
     def get_first_image(self):
         return self.resource_set.first() if self.resource_set else None
 
+    def get_video(self):
+        videos = self.resource_set.filter(youtube_id__isnull=False)
+        if videos.exists():
+            video = videos[0]
+            return video.youtube_id
+        return None
+
     def get_color(self):
         colors = {
             'local': 'danger',
@@ -94,8 +101,8 @@ class Resource(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     new = models.ForeignKey(New, on_delete=models.CASCADE)
-    image = models.ImageField(upload_to=media_resource_folder)
-    youtube_video = models.URLField(blank=True)
+    image = models.ImageField(upload_to=media_resource_folder, blank=True)
+    youtube_id = models.CharField(max_length=20, blank=True)
     objects = models.Manager()
 
     def __str__(self):

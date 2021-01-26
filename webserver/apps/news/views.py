@@ -9,6 +9,8 @@ from django.shortcuts import render
 from .forms import NewForm
 from .models import New
 from .models import Resource
+from .services import get_text_news
+from .services import get_video_news
 
 
 # Create your views here.
@@ -42,12 +44,22 @@ def news_list(request):
             'url': '/section/memes',
         },
     ]
-    last_5_news = New.objects.all()[:5]
-    last_10_news = New.objects.all()[:10]
-    local_5_news = New.objects.filter(section='local').order_by('-created_at')[0:5]
-    national_5_news = New.objects.filter(section='national').order_by('-created_at')[0:5]
-    international_5_news = New.objects.filter(section='international').order_by('-created_at')[0:5]
-    entertainment_5_news = New.objects.filter(section='entertainment').order_by('-created_at')[0:5]
+    # text news
+    text_news = get_text_news(None)
+    last_5_news = text_news[:5]
+    last_10_news = text_news[:10]
+    local_5_news = text_news.filter(section='local')[0:5]
+    national_5_news = text_news.filter(section='national')[0:5]
+    international_5_news = text_news.filter(section='international')[0:5]
+    entertainment_5_news = text_news.filter(section='entertainment')[0:5]
+    # video news
+    video_news = get_video_news(None)
+    last_video = video_news[0]
+    last_video_id = last_video.get_video()
+    four_videos = video_news[1:5]
+    four_video_ids = [video.get_video()
+                      for video in four_videos]
+    # context
     context = {
         'sections': sections,
         'last_5_news': last_5_news,
@@ -56,6 +68,8 @@ def news_list(request):
         'national_5_news': national_5_news,
         'international_5_news': international_5_news,
         'entertainment_5_news': entertainment_5_news,
+        'last_video': last_video_id,
+        'four_videos': four_video_ids,
     }
     return render(request, 'news/list.html', context)
 
