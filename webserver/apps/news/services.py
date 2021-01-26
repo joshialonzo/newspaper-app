@@ -9,7 +9,7 @@ def get_text_news(number):
     for new in news:
         resources = Resource.objects.filter(
             new=new,
-            youtube_id__isnull=True)
+            youtube_id__exact='')
         if resources.exists():
             text_news |= New.objects.filter(
                 pk=new.pk)
@@ -23,8 +23,7 @@ def get_video_news(number):
     video_news = New.objects.none()
     for new in news:
         resources = Resource.objects.filter(
-            new=new,
-            youtube_id__isnull=False)
+            new=new).exclude(youtube_id__exact='')
         if resources.exists():
             video_news |= New.objects.filter(
                 pk=new.pk)
