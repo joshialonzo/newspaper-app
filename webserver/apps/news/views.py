@@ -45,20 +45,30 @@ def news_list(request):
         },
     ]
     # text news
+    last_5_news = None
+    last_10_news = None
+    local_5_news = None
+    national_5_news = None
+    international_5_news = None
+    entertainment_5_news = None
     text_news = get_text_news(None)
-    last_5_news = text_news[:5]
-    last_10_news = text_news[:10]
-    local_5_news = text_news.filter(section='local')[0:5]
-    national_5_news = text_news.filter(section='national')[0:5]
-    international_5_news = text_news.filter(section='international')[0:5]
-    entertainment_5_news = text_news.filter(section='entertainment')[0:5]
+    if text_news.exists():
+        last_5_news = text_news[:5]
+        last_10_news = text_news[:10]
+        local_5_news = text_news.filter(section='local')[0:5]
+        national_5_news = text_news.filter(section='national')[0:5]
+        international_5_news = text_news.filter(section='international')[0:5]
+        entertainment_5_news = text_news.filter(section='entertainment')[0:5]
     # video news
+    last_video_id = None
+    four_video_ids = None
     video_news = get_video_news(None)
-    last_video = video_news[0]
-    last_video_id = last_video.get_video()
-    four_videos = video_news[1:5]
-    four_video_ids = [video.get_video()
-                      for video in four_videos]
+    if video_news.exists():
+        last_video = video_news[0]
+        last_video_id = last_video.get_video()
+        four_videos = video_news[1:5]
+        four_video_ids = [video.get_video()
+                          for video in four_videos]
     # context
     context = {
         'sections': sections,

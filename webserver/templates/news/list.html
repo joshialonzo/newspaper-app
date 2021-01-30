@@ -9,9 +9,11 @@
 <div class="container">
     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
         <ol class="carousel-indicators">
+            {% if last_5_news %}
             {% for new in last_5_news %}
             <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="{{ forloop.count }}"></li>
             {% endfor %}
+            {% endif %}
         </ol>
         <div class="carousel-inner">
             {% if last_5_news  %}
@@ -51,9 +53,11 @@
     <div class="container">
         <div class="title">Yucatán</div>
         <div class="columns">
+            {% if local_5_news %}
             {% for new in local_5_news %}
                 {% include 'news/new_section_card.html' %}
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -61,9 +65,11 @@
     <div class="container">
         <div class="title">Nacional</div>
         <div class="columns">
+            {% if national_5_news %}
             {% for new in national_5_news %}
                 {% include 'news/new_section_card.html' %}
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -71,9 +77,11 @@
     <div class="container">
         <div class="title">Internacional</div>
         <div class="columns">
+            {% if international_5_news %}
             {% for new in international_5_news %}
                 {% include 'news/new_section_card.html' %}
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -81,9 +89,11 @@
     <div class="container">
         <div class="title">Entretenimiento</div>
         <div class="columns">
+            {% if entertainment_5_news %}
             {% for new in entertainment_5_news %}
                 {% include 'news/new_section_card.html' %}
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
@@ -125,9 +135,11 @@
 <section class="section">
     <div class="container">
         <div class="columns is-multiline">
+            {% if last_10_news %}
             {% for new in last_10_news %}
             {% include "news/news_card.html" %}
             {% endfor %}
+            {% endif %}
         </div>
     </div>
 </section>
