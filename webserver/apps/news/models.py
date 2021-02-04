@@ -50,9 +50,7 @@ class New(models.Model):
         first_image = self.get_first_image()
         if not first_image:
             return None
-        print('first_image:', first_image)
         url = first_image.image.url
-        print('url:', url)
         return url
 
     def get_video(self):
