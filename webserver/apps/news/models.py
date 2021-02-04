@@ -46,6 +46,15 @@ class New(models.Model):
     def get_first_image(self):
         return self.resource_set.first() if self.resource_set else None
 
+    def get_url(self):
+        first_image = self.get_first_image()
+        if not first_image:
+            return None
+        print('first_image:', first_image)
+        url = first_image.image.url
+        print('url:', url)
+        return url
+
     def get_video(self):
         videos = self.resource_set.filter(youtube_id__isnull=False)
         if videos.exists():

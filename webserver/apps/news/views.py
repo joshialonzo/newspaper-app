@@ -85,13 +85,14 @@ def news_list(request):
 
 
 def news_detail(request, id):
-    new = get_object_or_404(New, id=id)
-    images = Resource.objects.filter(new=new)
-    news = New.objects.all()[:4]
+    text_news = get_text_news(None)
+    detail_new = text_news.filter(id=id).first()
+    images = Resource.objects.filter(new=detail_new)
+    text_news = text_news[:4]
     context = {
-        'new': new,
+        'detail_new': detail_new,
         'images': images,
-        'news': news,
+        'news': text_news,
     }
     return render(request, 'news/detail.html', context)
 

@@ -12,23 +12,23 @@
 	  <div class="container">
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
-				<h1 class="title">{{ new.title }}</h1>
-				<h2 class="subtitle">{{ new.subtitle }}</h2>
+				<h1 class="title">{{ detail_new.title }}</h1>
+				<h2 class="subtitle">{{ detail_new.subtitle }}</h2>
 			</div>
 		</div>
 		<div class="columns">
 			<div class="column is-8 is-offset-2">
 				<figure class="image is-16by9">
-				  <img src="{{ new.get_first_image.image.url }}" alt="{{ new.title }}">
+				  <img src="{{ detail_new.get_url }}" alt="{{ detail_new.title }}">
 				</figure>
 			</div>
 		</div>
 		<div class="columns">
 			<div class="column is-2	is-offset-2">
-				<span class="icon has-text-{{ new.get_color }}">
+				<span class="icon has-text-{{ detail_new.get_color }}">
 					<i class="fas fa-square"></i>
 			  	</span>
-				Sección: {{ new.get_section_display }}
+				Sección: {{ detail_new.get_section_display }}
 			</div>
 		  	<div class="is-divider-vertical" data-content="|"></div>
 			<div class="column is-2">
@@ -43,7 +43,7 @@
 					<i class="fas fa-calendar-alt"></i>
 			  	</span>
 				{% localtime on %}
-      			{{ new.created_at }}
+      			{{ detail_new.created_at }}
       			{% endlocaltime %}
 			</div>
 		</div>
@@ -52,7 +52,7 @@
 			<div class="columns">
 				<div class="column is-8 is-offset-2">
 					<div class="content is-medium">
-						{{ new.content|safe }}
+						{{ detail_new.content|safe }}
 					</div>
 				</div>
 			</div>
