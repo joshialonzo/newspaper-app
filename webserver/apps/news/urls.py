@@ -2,6 +2,7 @@
 from django.urls import path
 
 # custom django modules
+from .views import bootstrap_home
 from .views import news_list
 from .views import news_add
 from .views import news_detail
@@ -15,4 +16,7 @@ urlpatterns = [
     path('<uuid:id>/', news_detail, name='news_detail'),
     path('section/<str:name>/', section_detail, name='section_detail'),
     path('coming-soon/', coming_soon, name='coming_soon'),
+
+    # new templates with bootstrap
+    path('bootstrap/home/', bootstrap_home, name='bootstrap_home'),
 ]

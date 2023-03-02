@@ -131,3 +131,7 @@ def section_detail(request, name):
 def yucatan_news(request):
     news = New.objects.filter(section='Local').order_by('-pub_date')[0:5]
     return render(request, 'news/list.html', {'new': news})
+
+
+def bootstrap_home(request):
+    return render(request, 'bootstrap/home.html', {})
