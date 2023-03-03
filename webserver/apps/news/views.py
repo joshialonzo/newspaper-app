@@ -136,8 +136,18 @@ def yucatan_news(request):
 def bootstrap_home(request):
     # text news
     last_5_news = None
+    local_5_news = None
+
     text_news = get_text_news(None)
     if text_news.exists():
         last_5_news = text_news[:5]
-    context = {'last_5_news': last_5_news}
+        local_6_news = text_news.filter(
+            section='local'
+        )[0:6]
+
+    context = {
+        'last_5_news': last_5_news,
+        'local_6_news': local_6_news,
+    }
+
     return render(request, 'bootstrap/home.html', context)
