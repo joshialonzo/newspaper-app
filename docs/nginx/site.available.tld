@@ -2,7 +2,11 @@ server {
     listen 80;
     server_name site.available.tld;
 
+    location /static/ {
+        alias /opt/site/static/;
+    }
+
     location / {
-        root /opt/site/;
+        proxy_pass http://localhost:8000;
     }
 }
