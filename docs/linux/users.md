@@ -32,3 +32,11 @@ See the groups of a user
 # john: user
 groups john
 ```
+
+Login with a user
+
+```bash
+# su: command
+# john: user
+su john
+```
