@@ -17,3 +17,10 @@ Review sites available
 ```bash
 cd /etc/nginx/sites-available
 ```
+
+Create a site available
+
+```bash
+# site.available.tld: Name of the site available file
+touch /etc/nginx/sites-available/site.available.tld
+```
