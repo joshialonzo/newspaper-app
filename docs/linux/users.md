@@ -48,3 +48,11 @@ Remove a Linux user
 # john: user
 userdel john
 ```
+
+Remove a Linux group
+
+```bash
+# groupdel: command
+# john: group
+groupdel john
+```
