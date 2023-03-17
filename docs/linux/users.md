@@ -18,3 +18,9 @@ Change the password of a user
 # john: user
 passwd john
 ```
+
+See the list of Linux users
+
+```bash
+cat /etc/passwd
+```
