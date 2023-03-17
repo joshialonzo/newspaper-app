@@ -24,3 +24,11 @@ See the list of Linux users
 ```bash
 cat /etc/passwd
 ```
+
+See the groups of a user
+
+```bash
+# groups: command
+# john: user
+groups john
+```
