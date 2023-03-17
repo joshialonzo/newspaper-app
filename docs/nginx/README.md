@@ -30,3 +30,12 @@ Review sites enabled
 ```bash
 cd /etc/nginx/sites-enabled
 ```
+
+Enable a site available
+
+```bash
+# review nginx sites enabled
+cd /etc/nginx/sites-enabled
+# create symbolik link to the sites available file
+sudo ln -s /etc/nginx/sites-available/site.available.tld
+```
