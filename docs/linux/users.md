@@ -10,3 +10,11 @@ Create a new Linux user
 # john: name of the user
 useradd -m -s /bin/bash -G sudo john
 ```
+
+Change the password of a user
+
+```bash
+# passwd: command
+# john: user
+passwd john
+```
