@@ -6,7 +6,7 @@ Newspaper application developed with Python and Django. This website runs on pro
 
 ## System Adnimistration
 
----
+* [Our own documentation about System Administration](docs/README.md)
 
 ## Clone the repository
 
