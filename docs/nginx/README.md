@@ -11,3 +11,9 @@ Check the NGINX status
 ```bash
 sudo systemctl status nginx
 ```
+
+Review sites available
+
+```bash
+cd /etc/nginx/sites-available
+```
