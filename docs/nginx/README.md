@@ -24,3 +24,9 @@ Create a site available
 # site.available.tld: Name of the site available file
 touch /etc/nginx/sites-available/site.available.tld
 ```
+
+Review sites enabled
+
+```bash
+cd /etc/nginx/sites-enabled
+```
