@@ -39,3 +39,9 @@ cd /etc/nginx/sites-enabled
 # create symbolik link to the sites available file
 sudo ln -s /etc/nginx/sites-available/site.available.tld
 ```
+
+Restart NGINX
+
+```bash
+sudo systemctl restart nginx
+```
