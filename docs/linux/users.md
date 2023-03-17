@@ -40,3 +40,11 @@ Login with a user
 # john: user
 su john
 ```
+
+Remove a Linux user
+
+```bash
+# userdel: command
+# john: user
+userdel john
+```
