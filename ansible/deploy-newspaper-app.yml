@@ -1,0 +1,7 @@
+- hosts: consigna_do
+  gather_facts: no
+  become: True
+  roles:
+    - role: 'deploy/newspaper-app/nginx'
+      vars:
+        gunicorn_port: 9001
