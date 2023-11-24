@@ -27,6 +27,7 @@ media/
 # Virtualenv files
 venv/
 .env
+*.env
 
 # Maven
 target/
