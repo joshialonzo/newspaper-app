@@ -1,0 +1,14 @@
+name: Give any name to your workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test_django_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run Hello world
+        run: |
+          echo "Hello World"
