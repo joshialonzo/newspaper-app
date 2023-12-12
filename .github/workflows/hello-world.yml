@@ -2,13 +2,18 @@ name: Give any name to your workflow
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - master
 
 jobs:
   test_django_project:
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SECRET_KEY: "this-is-it"
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run Hello world
         run: |
-          echo "Hello World"
+          echo "DJANGO_SECRET_KEY: ${{ env.DJANGO_SECRET_KEY }}"
