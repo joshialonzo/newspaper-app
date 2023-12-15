@@ -1,0 +1,21 @@
+name: 0 - Run Everything
+
+on:
+    workflow_dispatch:
+    push:
+        branches: [master]
+
+jobs:
+    test_django:
+        uses: ./.github/workflows/hello-world.yml
+        secrets:
+            DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+            DB_ENGINE: ${{ secrets.DB_ENGINE }}
+            SERVER_DOMAIN: ${{ secrets.SERVER_DOMAIN }}
+    test_django_again:
+        needs: test_django
+        uses: ./.github/workflows/hello-world.yml
+        secrets:
+            DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+            DB_ENGINE: ${{ secrets.DB_ENGINE }}
+            SERVER_DOMAIN: ${{ secrets.SERVER_DOMAIN }}

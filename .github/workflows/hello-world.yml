@@ -1,27 +1,36 @@
 name: Give any name to your workflow
 
 on:
+  workflow_call:
+    secrets:
+      DJANGO_SECRET_KEY:
+        required: true
+      DB_ENGINE:
+        required: true
+      SERVER_DOMAIN:
+        required: true
   workflow_dispatch:
-  push:
-    branches:
-      - master
 
 jobs:
   test_django_project:
     runs-on: ubuntu-latest
+    env:
+      DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+      DB_ENGINE: ${{ secrets.DB_ENGINE }}
+      SERVER_DOMAIN: ${{ secrets.SERVER_DOMAIN }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Run Hello world
         run: |
-          echo "DJANGO_SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}"
+          echo "DJANGO_SECRET_KEY: ${{ env.DJANGO_SECRET_KEY }}"
       - name: 'Create .env file'
         run: |
           cd webserver
           touch .env
-          echo SECRET_KEY="${{ secrets.DJANGO_SECRET_KEY }}" >> .env
-          echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
-          echo SERVER_DOMAIN=${{ secrets.SERVER_DOMAIN }} >> .env
+          echo SECRET_KEY="${{ env.DJANGO_SECRET_KEY }}" >> .env
+          echo DB_ENGINE=${{ env.DB_ENGINE }} >> .env
+          echo SERVER_DOMAIN=${{ env.SERVER_DOMAIN }} >> .env
           cat .env
       - name: Setup Python 3.10
         uses: actions/setup-python@v2
