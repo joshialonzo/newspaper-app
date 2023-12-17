@@ -24,13 +24,13 @@ OUT_DIR = ENV_DIR.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don"t run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    os.environ.get("SERVER_DOMAIN"),
+    os.environ.get("SERVER_DOMAIN", "*"),
     "localhost",
     "127.0.0.1",
 ]
