@@ -51,16 +51,6 @@ jobs:
             # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
             - name: Check out repository code
               uses: actions/checkout@v2
-            
-            # Create .env file
-            - name: 'Create .env file'
-              run: |
-                cd webserver
-                touch .env
-                echo SECRET_KEY="${{ env.DJANGO_SECRET_KEY }}" >> .env
-                echo DB_ENGINE=${{ env.DB_ENGINE }} >> .env
-                echo SERVER_DOMAIN=${{ env.SERVER_DOMAIN }} >> .env
-                cat .env
 
             # Sets up Python 3.10
             - name: Sets up Python 3.10
