@@ -13,6 +13,7 @@ RUN python3 -m venv /opt/venv
 # Clean Python interpreter without packages: /opt/venv/bin/python
 # Update pip and install the requirements
 RUN /opt/venv/bin/python -m pip install pip --upgrade && \
+    /opt/venv/bin/python -m pip install mysql-client &&    \
     /opt/venv/bin/python -m pip install -r requirements.txt
 
 # Run our application
