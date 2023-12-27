@@ -89,13 +89,8 @@ WSGI_APPLICATION = "webserver.wsgi.application"
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-def get_database(engine: Literal["sqlite3", "postgresql"]):
-    if engine == "sqlite3":
-        return {
-            "ENGINE": "django.db.backends.sqlite3",
-            "NAME": BASE_DIR / "db.sqlite3",
-        }
-    elif engine == "postgresql":
+def get_database(engine: Literal["sqlite3", "postgresql"]):    
+    if engine == "postgresql":
         return {
             "ENGINE": "django.db.backends.postgresql_psycopg2",
             "NAME": os.environ.get("DB_NAME"),
@@ -103,6 +98,11 @@ def get_database(engine: Literal["sqlite3", "postgresql"]):
             "PASSWORD": os.environ.get("DB_PASSWORD"),
             "HOST": os.environ.get("DB_HOST"),
             "PORT": "5432",
+        }
+    else:
+        return {
+            "ENGINE": "django.db.backends.sqlite3",
+            "NAME": BASE_DIR / "db.sqlite3",
         }
 
 
